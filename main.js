@@ -1,3 +1,24 @@
+async function generateForgeCode(projectData) {
+  try {
+    const response = await fetch('https://forge-24ad.onrender.com/api/compile', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(projectData)
+    });
+
+    const data = await response.json();
+    console.log("Sunucudan gelen yanıt:", data);
+
+    if (data.success) {
+      alert("PROS komutu başarıyla çalıştırıldı!");
+    }
+  } catch (error) {
+    console.error("Bağlantı hatası:", error);
+  }
+}
+
 function showStep(hideEl, showEl) {
     hideEl.style.display = "none";
     showEl.style.display = "flex";
