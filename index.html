@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>FORGE - VEX V5 Configurator</title>
+</head>
+<body>
+    <div class="top-container"></div>
+
+    <!-- Landing Screen -->
+    <div class="middle-container" id="landing-screen">
+        <h1 class="title">FORGE</h1>
+        <button id="start-button" class="start-button">
+            <span class="button-text">Getting Started</span>
+        </button>   
+    </div>
+
+    <!-- Wizard Step 1: Project Setup -->
+    <div class="middle-container" id="wizard-step-1" style="display: none;">
+        <div class="step-header">
+            <span class="step-badge">STEP 1 / 2</span>
+            <h2 class="step-title">Project Setup</h2>
+            <p class="step-subtitle">Name your robot</p>
+        </div>
+
+        <div class="input-group">
+            <label for="project-name" class="input-label">Project Name</label>
+            <input 
+                type="text" 
+                id="project-name" 
+                class="custom-input" 
+                placeholder="e.g. mySuperCoolRobot" 
+                value="" 
+                autocomplete="off"
+                spellcheck="false"
+            >
+            <span class="input-hint" id="hint">Folders will be named with the project name.</span>
+        </div>
+
+        <button id="btn-to-step-2" class="start-button">
+            <span class="button-text">Select Template ➔</span>
+        </button>
+    </div>
+
+    <!-- Wizard Step 2: Template Selection -->
+    <div class="middle-container" id="wizard-step-2" style="display: none;">
+        <div class="step-header">
+            <span class="step-badge">STEP 2 / 2</span>
+            <h2 class="step-title">Select Base Template</h2>
+            <p class="step-subtitle">Choose your Tank Drive motion profiling library</p>
+        </div>
+
+        <div class="cards-container">
+            <div class="option-card active" data-template="lemlib">
+                <!-- <div class="card-tag">RECOMMENDED</div> -->
+                <h3>LemLib</h3>
+                <p>Advanced Tank drive chassis control, odometry, and Pure Pursuit algorithms.</p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="btn-back-to-1" class="secondary-button">← Back</button>
+            <button id="btn-generate" class="start-button">
+                <span class="button-text">Generate Config</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="middle-container" id="loading-step" style="display: none;">
+        <div class="spinner"></div>
+        <h2 class="loading-title">Forging Your Configuration...</h2>
+        <p class="loading-subtitle" id="loading-status">Setting up PROS environment & template files</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="bottom-container">
+        <span class="version-text">v1.0.0</span>
+        <div class="vex-branding">
+            <span class="designed-text">Designed for</span>
+            <a href="https://www.vexrobotics.com/v5" target="_blank" rel="noopener noreferrer">
+                <img src="assets/VEX V5 Logo_Grayscale.svg" alt="VEX V5 Logo" class="vex-logo">
+            </a>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

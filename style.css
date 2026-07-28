@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9e9d6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    color: #7B542F;
+    overflow: hidden;
+}
+
+.top-container {
+    width: 100%;
+    height: 60px;
+}
+
+.middle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.title {
+    font-size: 10rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.start-button {
+    background-color: transparent;
+    border: 2.5px solid #7B542F;
+    color: #7B542F;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #7B542F;
+    color: #e9e9d6;
+}
+
+.bottom-container {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.version-text {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.vex-branding {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.designed-text {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.vex-logo {
+    height: 24px;
+    width: auto;
+    filter: invert(34%) sepia(35%) saturate(884%) hue-rotate(349deg) brightness(92%) contrast(88%);
+    transition: opacity 0.3s ease;
+}
+
+.vex-logo:hover {
+    opacity: 0.75;
+}
+
+/* --- Wizard Styles --- */
+.step-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.step-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.75;
+}
+
+.step-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.step-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.cards-container {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 2rem;
+}
+
+.option-card {
+    position: relative;
+    background-color: transparent;
+    border: 2.5px solid #7B542F;
+    border-radius: 20px;
+    padding: 32px 24px 24px 24px;
+    width: 250px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-tag {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background-color: #e9e9d6;
+    border: 2px solid #7B542F;
+    color: #7B542F;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+}
+
+.option-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.option-card p {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    opacity: 0.85;
+}
+
+.option-card:hover, .option-card.active {
+    background-color: #7B542F;
+    color: #e9e9d6;
+}
+
+.option-card:hover .card-tag, .option-card.active .card-tag {
+    background-color: #7B542F;
+    border-color: #e9e9d6;
+    color: #e9e9d6;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 2rem;
+}
+
+#wizard-step-1 {
+    width: 90%;
+    max-width: 440px;
+}
+
+.input-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.custom-input {
+    width: 100%;
+    background-color: transparent;
+    border: 2.5px solid #7B542F;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #7B542F;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 0 4px rgba(123, 84, 47, 0.15);
+    background-color: rgba(123, 84, 47, 0.04);
+}
+
+.custom-input::placeholder {
+    color: #7B542F;
+    opacity: 0.4;
+}
+
+.input-hint {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 6px;
+}
+
+.button-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid #7B542F;
+    color: #7B542F;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: rgba(123, 84, 47, 0.1);
+}
+
+.spinner {
+    width: 56px;
+    height: 56px;
+    border: 4px solid rgba(123, 84, 47, 0.2);
+    border-top: 4px solid #7B542F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #7B542F;
+    margin-bottom: 6px;
+}
+
+.loading-subtitle {
+    font-size: 0.9rem;
+    color: #7B542F;
+    opacity: 0.75;
+}
+
+.fade-in {
+    animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
