@@ -9,13 +9,13 @@ async function generateForgeCode(projectData) {
     });
 
     const data = await response.json();
-    console.log("Sunucudan gelen yanıt:", data);
+    console.log("Server response:", data);
 
     if (data.success) {
-      alert("PROS komutu başarıyla çalıştırıldı!");
+      alert("PROS CLI command executed successfully!");
     }
   } catch (error) {
-    console.error("Bağlantı hatası:", error);
+    console.error("Connection error:", error);
   }
 }
 
