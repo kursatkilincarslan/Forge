@@ -12,6 +12,27 @@ app.use(cors());
 app.use(express.json({ limit: '100kb' }));
 app.use(express.static(path.join(__dirname, '.')));
 
+app.get('/api/explorer', (req, res) => {
+  const targetDirectory = path.join(__dirname, 'forge_kitchen_project');
+
+  fs.readdir(targetDirectory, { recursive: true }, (readError, fileList) => {
+    if (readError) {
+      return res.status(500).json({
+        success: false,
+        error: 'Failed to scan directory structure.'
+      });
+    }
+
+    fs.readFile(MAIN_SOURCE_FILE_PATH, 'utf8', (fileReadError, mainCppContent) => {
+      res.json({
+        success: true,
+        directoryStructure: fileList,
+        currentMainCppContent: fileReadError ? 'Unable to read file' : mainCppContent
+      });
+    });
+  });
+});
+
 const KITCHEN_DIRECTORY_PATH = path.join(__dirname, 'forge_kitchen_project');
 const MAIN_SOURCE_FILE_PATH = path.join(KITCHEN_DIRECTORY_PATH, 'src', 'main.cpp');
 const EXECUTION_TIMEOUT_MS = 10000;
