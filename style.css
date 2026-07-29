@@ -30,7 +30,7 @@ body {
 }
 
 .title {
-    font-size: 10rem;
+    font-size: 8.5rem;
     font-weight: 800;
     letter-spacing: 4px;
     margin-bottom: 1.5rem;
@@ -284,4 +284,143 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.top-left-container {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+}
+
+/* Dropdown Kapsayıcı */
+.custom-dropdown {
+  position: relative;
+  user-select: none;
+  font-family: inherit;
+}
+
+/* Ana Seçim Kutusu */
+.dropdown-selected {
+  background-color: transparent;
+  color: #6A4A23;
+  border: 1.5px solid #6A4A23;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-selected:hover {
+  background-color: rgba(106, 74, 35, 0.08);
+}
+
+.dropdown-selected .arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+/* Menü Açıkken Ok Yönü */
+.custom-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* Açılır Menü Gövdesi */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  background-color: #E8E6D9;
+  border: 1.5px solid #6A4A23;
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 101;
+}
+
+.custom-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* Menü Elemanları */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #6A4A23;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(106, 74, 35, 0.12);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(106, 74, 35, 0.25);
+  margin: 6px 4px;
+}
+
+.dropdown-item, .dropdown-selected-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ok İkonu Temel Stili ve Animasyonu */
+.chevron-icon {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Menü Açıldığında Ok Yukarı Dönüşsün */
+.custom-dropdown.open .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-selected,
+.mainActionBtn {
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.9s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 2. DROPDOWN MENÜSÜNÜN AÇILIŞ / KAPANIŞ ANİMASYONU */
+.dropdown-menu {
+  /* Başlangıçta görünmez ve 8px yukarıda durur */
+  opacity: 0;
+  transform: translateY(-8px) scale(0.96);
+  pointer-events: none;
+  display: block; /* display: none yerine görünürlüğü opacity ile yönetiyoruz */
+  
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Menü açıldığında yumuşakça aşağı süzülür */
+.custom-dropdown.open .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
